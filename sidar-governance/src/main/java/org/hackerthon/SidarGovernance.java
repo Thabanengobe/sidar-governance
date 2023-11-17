@@ -2,6 +2,7 @@ package org.hackerthon;
 
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
+import org.hackerthon.excel_parser.ExcelParser;
 
 public class SidarGovernance {
 
@@ -25,8 +26,15 @@ public class SidarGovernance {
     }
 
     public void configureServer(){
+        ExcelParser parser = new ExcelParser();
         SidarGovernance.server = Javalin.create(config->{
             config.addStaticFiles( TEMPLATE_DIR, Location.CLASSPATH);
+        });
+//        server.get("/", ctx -> {
+//           ctx.render("/index.html");
+//        });
+        server.get("/purposeform", ctx -> {
+            ctx.json(parser.getPurposeQO().getQuestions());
         });
     }
 }
