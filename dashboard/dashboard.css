@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https: //www.google.com/imgres?imgurl=https%3A%2F%2Fst2.depositphotos.com%2F1637332%2F6232%2Fi%2F450%2Fdepositphotos_62328261-stock-photo-man-with-chart-online-icon.jpg&tbnid=lx-M7nFM4s-JcM&vet=12ahUKEwi0mae3kcuCAxU5pCcCHY-XD9wQMygLegUIARCJAQ..i&imgrefurl=https%3A%2F%2Fdepositphotos.com%2Fphotos%2Fgovernance.html&docid=IgzSAw1eHmPiMM&w=600&h=400&q=governance%20images&ved=2ahUKEwi0mae3kcuCAxU5pCcCHY-XD9wQMygLegUIARCJAQ');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+    background-size: 1900px 1000px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.product-section {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+/* .cart-section,
+.checkout-section {
+    flex: 1;
+    padding: 1rem;
+} */
+.continue {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item {
+    list-style: none;
+    margin-bottom: 1rem;
+    background: rgb(2, 0, 36);
+    background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgba(62, 77, 176, 0.619012570848652) 48%, rgba(0, 212, 255, 1) 100%);
+    border: 1px solid #ccc;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.add-to-cart-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0056b3;
+}
+
+.cart {
+    background-color: #edf7ee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.checkout-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: #0056b3;
+}
