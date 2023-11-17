@@ -1,11 +1,17 @@
 package org.hackerthon.questionDO;
 
-// public class ConformanceDO {
+import java.util.List;
 
-//     private List<String> questions;
-//     public ConformanceDO()
-//     {
+public class ConformanceDO {
 
-//     }
+    private final List<String> questions;
+     public ConformanceDO(List<String> questions)
+     {
+         this.questions = questions;
+     }
+
+    public List<String> getQuestions() {
+        return this.questions;
+    }
     
-// }
+ }
