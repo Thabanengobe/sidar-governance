@@ -3,6 +3,7 @@ package org.hackerthon.controllers;
 import net.lemnik.eodsql.QueryTool;
 import org.hackerthon.database.ResponsesDAI;
 import org.hackerthon.database.ResponsesDO;
+import org.hackerthon.excel_parser.ExcelParser;
 import org.hackerthon.model.AnalysisData;
 
 import java.sql.Connection;
@@ -13,6 +14,7 @@ public class DataBaseHandler{
 
     private final static String fileName = System.getProperty("user.dir")
             +"/src/main/java/org/hackerthon/database/sidardb.sqlite";
+    private final static  ExcelParser parser;
     private final static ResponsesDAI RESPONSES_DAI;
 
     static {
@@ -23,18 +25,23 @@ public class DataBaseHandler{
             RESPONSES_DAI.createCategoryAccountabilityForPerformance();
             RESPONSES_DAI.createCategorySustainability();
             RESPONSES_DAI.createCategoryConformance();
+            parser = new ExcelParser();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static ResponsesDAI getResponsesDaiDAI() {
+    public static ResponsesDAI getResponsesDAI() {
         return RESPONSES_DAI;
+    }
+
+    public static ExcelParser getExcelParser(){
+        return parser;
     }
 
     public static void main(String[] args) {
         ResponsesDO responsesDO = new ResponsesDO();
-        ResponsesDAI dai = DataBaseHandler.getResponsesDaiDAI();
+        ResponsesDAI dai = DataBaseHandler.getResponsesDAI();
 
     }
 }

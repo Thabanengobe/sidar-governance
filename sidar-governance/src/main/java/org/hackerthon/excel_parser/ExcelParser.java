@@ -24,7 +24,7 @@ public class ExcelParser {
 
     public void readFile()
     {
-        String excelFilePath = "sidar-governance/src/main/java/org/hackerthon/excel_parser/questions.xlsx";
+        String excelFilePath = System.getProperty("user.dir")+"/src/main/java/org/hackerthon/excel_parser/questions.xlsx";
 
         try (FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
              Workbook workbook = WorkbookFactory.create(inputStream)) {
