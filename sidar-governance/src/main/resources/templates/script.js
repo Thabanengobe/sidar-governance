@@ -2,7 +2,9 @@
 
 function loadQuestions() {
     $.get("http://localhost:8000/purposeform", function (data) {
-        var tableHtml = '<tr><th>Questions</th><th>Non-Existent</th><th>Minimal</th><th>Some Elements</th><th>Largely in Place</th><th>Fully in Place</th></tr>';
+        var tableHtml = '<form name= "form1" id="gradingForm" action="/submitForm" method="post">';
+        tableHtml += '<table id="questionTable">';
+        tableHtml += '<tr><th>Questions</th><th>Non-Existent</th><th>Minimal</th><th>Some Elements</th><th>Largely in Place</th><th>Fully in Place</th></tr>';
         data.forEach(function (question, index) {
             tableHtml += '<tr>';
             tableHtml += '<td>' + question + '</td>';
@@ -12,17 +14,16 @@ function loadQuestions() {
             }
             tableHtml += '</tr>';
         });
+        tableHtml += '</table>';
+        tableHtml += '<button type="submit">Submit</button>';
+        tableHtml += '</form>';
+
         $("#questionTable").html(tableHtml);
     });
 }
 
-function submitForm() {
-    var grades = {};
-    // Loop through radio inputs and extract values
-    $("input[type='radio']:checked").each(function () {
-        var questionIndex = $(this).attr('name').split('_')[1];
-        var level = $(this).val();
-        grades[questionIndex] = level;
-    });
-    console.log(grades); // Replace this with your logic to handle the grades
-}
+//function submitForm() {
+//    $.post("http://localhost:8000/submitForm", $("#gradingForm").serialize(), function (response) {
+//        console.log(response); // Log the server response
+//    });
+//}
