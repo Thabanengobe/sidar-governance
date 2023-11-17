@@ -2,7 +2,7 @@ package org.hackerthon.database;
 
 import net.lemnik.eodsql.ResultColumn;
 
-public class SidarResponsesDO {
+public class ResponsesDO {
 
     public String question;
     private int non_existent;

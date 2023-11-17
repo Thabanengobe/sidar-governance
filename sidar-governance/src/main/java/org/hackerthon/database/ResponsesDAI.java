@@ -6,7 +6,7 @@ import net.lemnik.eodsql.Update;
 
 import java.util.Collection;
 
-public interface SidarDai extends BaseQuery {
+public interface ResponsesDAI extends BaseQuery {
     String COLUMNS = "(non_existent, minimal, some_elements,largely_in_place, fully_in_place)";
 
     @Update("CREATE TABLE ?{1}"+COLUMNS)
@@ -14,11 +14,11 @@ public interface SidarDai extends BaseQuery {
 
     @Update("INSERT INTO ?{1}"+COLUMNS+"VALUES(?{1.question}, ?{1.non_existent}, ?{1.minimal}," +
             "?{1.some_elements}, ?{1.largely_in_place}, ?{fully_in_place})")
-    void saveResponse(String tableName, SidarResponsesDO responsesDO);
+    void saveResponse(String tableName, ResponsesDO responsesDO);
 
     @Select("SELECT * ?{1} FROM WHERE question=?{2}")
-    Collection<SidarResponsesDO> getDataByQuestion(String tableName, String question);
+    Collection<ResponsesDO> getDataByQuestion(String tableName, String question);
 
     @Select("SELECT * FROM ?{1}")
-    Collection<SidarResponsesDO> getAllData(String tableName);
+    Collection<ResponsesDO> getAllData(String tableName);
 }
