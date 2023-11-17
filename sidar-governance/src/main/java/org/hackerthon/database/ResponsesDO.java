@@ -4,12 +4,11 @@ import net.lemnik.eodsql.ResultColumn;
 
 public class ResponsesDO {
 
-    public String question;
-    private int non_existent;
-    private int minimal;
-    private int some_elements;
-    private int largely_in_place;
-
+    private static String question;
+    private static int non_existent;
+    private static int minimal;
+    private static int some_elements;
+    private static int largely_in_place;
 
     private int fully_in_place;
 
@@ -37,34 +36,35 @@ public class ResponsesDO {
         return fully_in_place;
     }
 
-    @ResultColumn("fully_in_place")
+    @ResultColumn(value = "questions")
+    public void setQuestion(String question) {
+        ResponsesDO.question = question;
+    }
+    @ResultColumn(value = "fully_in_place")
     public void setFully_in_place(int fully_in_place) {
         this.fully_in_place = fully_in_place;
     }
 
-    @ResultColumn("largely_in_place")
+    @ResultColumn(value = "largely_in_place")
     public void setLargely_in_place(int largely_in_place) {
-        this.largely_in_place = largely_in_place;
+        ResponsesDO.largely_in_place = largely_in_place;
     }
 
-    @ResultColumn("non_existent")
+    @ResultColumn(value = "non_existent")
     public void setNon_existent(int non_existent) {
-        this.non_existent = non_existent;
+        ResponsesDO.non_existent = non_existent;
     }
 
-    @ResultColumn("some_elements")
+    @ResultColumn(value = "some_elements")
     public void setSome_elements(int some_elements) {
-        this.some_elements = some_elements;
+        ResponsesDO.some_elements = some_elements;
     }
 
-    @ResultColumn("minimal")
+    @ResultColumn(value = "minimal")
     public void setMinimal(int minimal) {
-        this.minimal = minimal;
+        ResponsesDO.minimal = minimal;
     }
 
-    @ResultColumn("question")
-    public void setQuestion(String question) {
-        this.question = question;
-    }
+
 
 }
