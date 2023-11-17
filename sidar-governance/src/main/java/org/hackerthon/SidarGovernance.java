@@ -14,6 +14,9 @@ public class SidarGovernance {
     private static Javalin server;
     private final int DEFAULT_PORT = 8000;
     private static final String TEMPLATE_DIR = "/templates";
+    static {
+
+    }
 
     public SidarGovernance(){
         configureServer();
