@@ -13,6 +13,30 @@ public class SidarResponsesDO {
 
     private int fully_in_place;
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public int getLargely_in_place() {
+        return largely_in_place;
+    }
+
+    public int getMinimal() {
+        return minimal;
+    }
+
+    public int getNon_existent() {
+        return non_existent;
+    }
+
+    public int getSome_elements() {
+        return some_elements;
+    }
+
+    public int getFully_in_place() {
+        return fully_in_place;
+    }
+
     @ResultColumn("fully_in_place")
     public void setFully_in_place(int fully_in_place) {
         this.fully_in_place = fully_in_place;
@@ -43,27 +67,4 @@ public class SidarResponsesDO {
         this.question = question;
     }
 
-    public String getQuestion() {
-        return question;
-    }
-
-    public int getLargely_in_place() {
-        return largely_in_place;
-    }
-
-    public int getMinimal() {
-        return minimal;
-    }
-
-    public int getNon_existent() {
-        return non_existent;
-    }
-
-    public int getSome_elements() {
-        return some_elements;
-    }
-
-    public int getFully_in_place() {
-        return fully_in_place;
-    }
 }
