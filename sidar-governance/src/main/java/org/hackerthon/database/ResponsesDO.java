@@ -4,33 +4,31 @@ import net.lemnik.eodsql.ResultColumn;
 
 public class ResponsesDO {
 
+    @ResultColumn(value = "questions")
     private static String question;
+
+    @ResultColumn(value = "choices")
     private static String choice;
+
+    @ResultColumn(value = "roles")
     private static String role;
 
     public String getQuestion() {
         return question;
     }
 
+
     public String getChoice(){
         return choice;
     }
+
     public String getRole(){
         return role;
     }
 
-    @ResultColumn(value = "questions")
-    public void setQuestion(String question) {
+    public ResponsesDO(String choice, String question, String role){
+        ResponsesDO.choice = choice;
         ResponsesDO.question = question;
-    }
-
-    @ResultColumn(value = "roles")
-    public void setRole(String role){
         ResponsesDO.role = role;
     }
-    @ResultColumn(value = "choices")
-    public void setChoice(String choice) {
-        ResponsesDO.choice = choice;
-    }
-
 }

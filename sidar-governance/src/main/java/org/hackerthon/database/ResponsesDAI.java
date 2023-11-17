@@ -33,16 +33,26 @@ public interface ResponsesDAI extends BaseQuery {
 
     @Select("SELECT * FROM EnterprisePurpose WHERE question=?{1}")
     Collection<ResponsesDO> getDataByQuestionInEnterprisePurpose(String question);
-
-    @Select("SELECT *  FROM AccountabilityForPerformance WHERE question=?{1}")
-    Collection<ResponsesDO> getDataByQuestionInAccountabilityForPerformance(String question);
-
     @Select("SELECT * FROM Sustainability  WHERE question=?{1}")
     Collection<ResponsesDO> getDataByQuestionInSustainability(String question);
 
     @Select("SELECT * FROM Conformance WHERE question=?{1}")
     Collection<ResponsesDO> getDataByQuestionInConformance(String question);
 
+    @Select("SELECT *  FROM AccountabilityForPerformance WHERE question=?{1}")
+    Collection<ResponsesDO> getDataByQuestionInAccountabilityForPerformance(String question);
+
+    @Select("SELECT * FROM Sustainability  WHERE roles=?{1}")
+    Collection<ResponsesDO> getDataByRoleInSustainability(String role);
+
+    @Select("SELECT * FROM Conformance WHERE roles=?{1}")
+    Collection<ResponsesDO> getDataByRoleInConformance(String role);
+
+    @Select("SELECT * FROM EnterprisePurpose WHERE roles=?{1}")
+    Collection<ResponsesDO> getDataByRolesInEnterprisePurpose(String role);
+
+    @Select("SELECT *  FROM AccountabilityForPerformance WHERE roles=?{1}")
+    Collection<ResponsesDO> getDataByRoleInAccountabilityForPerformance(String role);
 
     @Select("SELECT * FROM EnterprisePurpose")
     Collection<ResponsesDO> getAllDataInEnterprisePurpose();
