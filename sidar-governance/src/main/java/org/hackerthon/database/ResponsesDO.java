@@ -1,6 +1,5 @@
 package org.hackerthon.database;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 
 import net.lemnik.eodsql.ResultColumn;
 
@@ -19,7 +18,9 @@ public class ResponsesDO {
     public String getQuestion() {
         return question;
     }
-
+    public String getCategory() {
+        return category;
+    }
 
     public String getChoice(){
         return choice;
@@ -40,10 +41,6 @@ public class ResponsesDO {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public void setCategory(String category) {
