@@ -45,6 +45,7 @@ public class Main {
         double pecent3 = ((double) (LargelyInPlace) / (total*14))*100;
         String[] CHOICES = {"Non-Existent", "Minimal",
                 "Some Elements", "Largely in Place", "Fully in Place"};
-        context.json(" "+CHOICES[0]+":"+pecent+"\n"+CHOICES[1]+":"+pecent1+"\n"+CHOICES[2]+":"+pecent2+"\n");
+        context.result(CHOICES[0]+":    "+pecent+"%\n"+CHOICES[1]+":    "+pecent1+"%\n"+CHOICES[2]+":   "+pecent2+"%\n" +
+                CHOICES[3]+":  "+pecent3);
     }
 }
