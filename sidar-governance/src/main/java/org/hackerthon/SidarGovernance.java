@@ -5,6 +5,7 @@ import io.javalin.http.staticfiles.Location;
 
 import org.hackerthon.controllers.ReadResponseHandler;
 import org.hackerthon.excel_parser.ExcelParser;
+import org.hackerthon.model.Main;
 
 public class SidarGovernance {
 
@@ -37,6 +38,6 @@ public class SidarGovernance {
             ctx.json(parser.getPurposeQO().getQuestions());
         }).before(ctx->{
             ctx.header("Access-Control-Allow-Origin", "*");
-        });
+        }).get("/results", Main::main);
     }
 }

@@ -4,7 +4,7 @@ function loadQuestions() {
     .then(response =>response.json())
 
     .then((data)=>{ 
-        
+
         const form =  createForm();
         const div = document.getElementById("questionare");
         const table = createTable();
@@ -23,7 +23,7 @@ function loadQuestions() {
 
         const input = document.createElement('input');
         input.type = "submit";
-        form.appendChild(createRoles());
+//        form.appendChild(createRoles());
         form.append(input);
         form.appendChild(table)
         div.appendChild(form);

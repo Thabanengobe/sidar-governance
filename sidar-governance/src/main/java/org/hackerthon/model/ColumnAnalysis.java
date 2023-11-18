@@ -28,7 +28,7 @@ public class ColumnAnalysis {
                 .toList().size();
     }
 
-    public HashMap<String, Collection<ResponsesDO>> filterByQuestion(List<String> questionDO){
+    public static HashMap<String, Collection<ResponsesDO>> filterByQuestion(List<String> questionDO){
         HashMap<String, Collection<ResponsesDO>> questions = new HashMap<>();
         questionDO.iterator()
                 .forEachRemaining((question)->{
@@ -37,7 +37,7 @@ public class ColumnAnalysis {
         return questions;
     }
 
-    public HashMap<String, Collection<ResponsesDO>> filterByCategory(){
+    public static HashMap<String, Collection<ResponsesDO>> filterByCategory(){
 
         HashMap<String, Collection<ResponsesDO>> categoriesData = new HashMap<>();
         String[] categories = {Categories.SUSTAINABILITY.name(), Categories.PURPOSE.name()

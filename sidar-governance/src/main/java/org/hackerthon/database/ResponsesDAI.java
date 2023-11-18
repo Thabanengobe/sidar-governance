@@ -16,7 +16,7 @@ public interface ResponsesDAI extends BaseQuery {
     @Update("INSERT INTO DataAnalysis"+COLUMNS+VALUES)
     void saveResponse(ResponsesDO responsesDO);
 
-    @Select("SELECT * FROM DataAnalysis WHERE question=?{1}")
+    @Select("SELECT * FROM DataAnalysis WHERE questions=?{1}")
     Collection<ResponsesDO> getDataByQuestion(String question);
 
     @Select("SELECT * FROM DataAnalysis  WHERE categories=?{1}")

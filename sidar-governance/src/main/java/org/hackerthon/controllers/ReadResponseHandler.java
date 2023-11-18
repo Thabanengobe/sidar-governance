@@ -12,8 +12,7 @@ public class ReadResponseHandler {
     public static void purposeResponse(Context context){
         List<String>  questions = DataBaseHandler.getExcelParser().getPurposeQO().getQuestions();
         saveResponse(context, questions, Categories.PURPOSE.name());
-        Collection<ResponsesDO> db = DataBaseHandler.getResponsesDAI().getAllData();
-        context.json(db);
+        context.redirect("/results");
     }
 
     public static void conformanceResponse(Context context){
@@ -39,7 +38,7 @@ public class ReadResponseHandler {
             ResponsesDO response = new ResponsesDO();
             response.setChoice(context.formParam(String.valueOf(index)));
             response.setQuestion(questions.get(index));
-            response.setRole(context.formParam("role"));
+//            response.setRole(context.formParam("role"));
             response.setCategory(category);
             DataBaseHandler.getResponsesDAI().saveResponse(response);
         }
