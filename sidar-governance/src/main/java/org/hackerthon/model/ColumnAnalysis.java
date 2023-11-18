@@ -1,9 +1,11 @@
 package org.hackerthon.model;
 
+import org.hackerthon.controllers.Categories;
 import org.hackerthon.controllers.DataBaseHandler;
 import org.hackerthon.database.ResponsesDO;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,11 +28,25 @@ public class ColumnAnalysis {
                 .toList().size();
     }
 
-//    public void getQuestionsStat(){
-//        List<ResponsesDO> questions = DataBaseHandler.getExcelParser().getPerformanceQO()
-//                .getQuestions().stream()
-//                .map((question)->{
-//                    return DataBaseHandler.getResponsesDAI().getDataByQuestion(question);
-//                }).collect(Collectors.toList());
-//    }
+    public HashMap<String, Collection<ResponsesDO>> filterByQuestion(List<String> questionDO){
+        HashMap<String, Collection<ResponsesDO>> questions = new HashMap<>();
+        questionDO.iterator()
+                .forEachRemaining((question)->{
+                    questions.put(question, DataBaseHandler.getResponsesDAI().getDataByQuestion(question));
+                });
+        return questions;
+    }
+
+    public HashMap<String, Collection<ResponsesDO>> filterByCategory(){
+
+        HashMap<String, Collection<ResponsesDO>> categoriesData = new HashMap<>();
+        String[] categories = {Categories.SUSTAINABILITY.name(), Categories.PURPOSE.name()
+        ,Categories.PERFORMANCE.name(), Categories.CONFORMANCE.name()};
+
+        for (String category:categories){
+            categoriesData.put(category, DataBaseHandler.getResponsesDAI().getDataByCategory(category));
+        }
+
+        return categoriesData;
+    }
 }
