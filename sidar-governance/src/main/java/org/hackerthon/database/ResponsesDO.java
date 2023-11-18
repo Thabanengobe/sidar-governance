@@ -40,27 +40,27 @@ public class ResponsesDO {
     public void setQuestion(String question) {
         ResponsesDO.question = question;
     }
-    @ResultColumn(value = "fully_in_place")
+    @ResultColumn(value = "grade_4")
     public void setFully_in_place(int fully_in_place) {
         this.fully_in_place = fully_in_place;
     }
 
-    @ResultColumn(value = "largely_in_place")
+    @ResultColumn(value = "grade_3")
     public void setLargely_in_place(int largely_in_place) {
         ResponsesDO.largely_in_place = largely_in_place;
     }
 
-    @ResultColumn(value = "non_existent")
+    @ResultColumn(value = "grade_0")
     public void setNon_existent(int non_existent) {
         ResponsesDO.non_existent = non_existent;
     }
 
-    @ResultColumn(value = "some_elements")
+    @ResultColumn(value = "grade_2")
     public void setSome_elements(int some_elements) {
         ResponsesDO.some_elements = some_elements;
     }
 
-    @ResultColumn(value = "minimal")
+    @ResultColumn(value = "grade_1")
     public void setMinimal(int minimal) {
         ResponsesDO.minimal = minimal;
     }

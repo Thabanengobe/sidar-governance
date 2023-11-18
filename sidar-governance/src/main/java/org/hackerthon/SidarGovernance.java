@@ -3,6 +3,8 @@ package org.hackerthon;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.staticfiles.Location;
+import org.hackerthon.controllers.DataBaseHandler;
+import org.hackerthon.database.ResponsesDO;
 import org.hackerthon.excel_parser.ExcelParser;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class SidarGovernance {
 //            config.post("/submitForm", this::submitForm);
         });
 //        server.get("/", ctx -> {
-//           ctx.render("/index.html");
+//           ctx.render("/index(taps).html");
 //        });
         server.get("/purposeform", ctx -> {
             ctx.json(parser.getPurposeQO().getQuestions());
@@ -49,9 +51,10 @@ public class SidarGovernance {
 //        String grade = ctx.formParam("grade_1");
 //        System.out.println(grade);
         Map<String, List<String>> formValues = ctx.formParamMap();
-//        ctx.formParamAsClass()
-        System.out.println(formValues);
-
+//        ResponsesDO da = ctx.formParamAsClass("form1", ResponsesDO.class).get();
+//        DataBaseHandler.getResponsesDaiDAI().saveResponseEnterprisePurpose(da);
+//        System.out.println(formValues);
+//
         // Create lists to store questions and selected values
         List<String> questions = new ArrayList<>();
         List<String> selectedValues = new ArrayList<>();
@@ -59,7 +62,7 @@ public class SidarGovernance {
         formValues.forEach((key, value) -> {
             // Assuming radio inputs are named like grade_0, grade_1, etc.
             if (key.startsWith("grade_")) {
-                String selectedValue = value.toString(); // Get the selected value
+                String selectedValue = value.get(0); // Get the selected value
                 System.out.println("Question " + key + ": " + selectedValue);
 
                 // Add question and selected value to lists
@@ -67,9 +70,9 @@ public class SidarGovernance {
                 selectedValues.add(selectedValue);
             }
         });
-        System.out.println(questions.size());
-        System.out.println(selectedValues.size());
+//        System.out.println(questions.size());
+//        System.out.println(selectedValues.size());
         // You can handle the form data as needed and send a response back to the client
-        ctx.result("Form submitted successfully!");
+//        ctx.result("Form submitted successfully!");
     }
 }
