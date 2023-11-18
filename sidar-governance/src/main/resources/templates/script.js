@@ -5,12 +5,20 @@ function loadQuestions() {
     .then(response =>response.json())
     .then((data)=>{ 
         const choices = ['Non-Existent', 'Minimal', 'Some Elements', 'Largely in Place', 'Fully in Place' ]
+        const roles = ['CEO', 'the chair', 'trustees']
         const form = document.createElement('form');
         form.action = "/submitPurpose";
         form.method = "POST";
         const div = document.getElementById("questionare");
+        const role = document.createElement("select");
+        role.name = "role";
+        for(let i=0; i <= 3; i++){
+            let option = createTableHeader("option", roles[i]);
+            option.value = roles[i];
+            role.appendChild(option);
+        }
         const table = document.createElement('table');
-        const body = document.createElement('tbody');
+        form.appendChild(role);
     
         var tableHtml = '<tr><th>Questions</th><th>Non-Existent</th><th>Minimal</th><th>Some Elements</th><th>Largely in Place</th><th>Fully in Place</th></tr>';
         table.appendChild(createTableHeader("thead",tableHtml));
