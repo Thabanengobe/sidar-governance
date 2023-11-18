@@ -1,5 +1,6 @@
 package org.hackerthon.model;
 
+import org.hackerthon.controllers.Categories;
 import org.hackerthon.controllers.DataBaseHandler;
 import org.hackerthon.database.ResponsesDO;
 
@@ -34,5 +35,18 @@ public class ColumnAnalysis {
                     questions.put(question, DataBaseHandler.getResponsesDAI().getDataByQuestion(question));
                 });
         return questions;
+    }
+
+    public HashMap<String, Collection<ResponsesDO>> filterByCategory(){
+
+        HashMap<String, Collection<ResponsesDO>> categoriesData = new HashMap<>();
+        String[] categories = {Categories.SUSTAINABILITY.name(), Categories.PURPOSE.name()
+        ,Categories.PERFORMANCE.name(), Categories.CONFORMANCE.name()};
+
+        for (String category:categories){
+            categoriesData.put(category, DataBaseHandler.getResponsesDAI().getDataByCategory(category));
+        }
+
+        return categoriesData;
     }
 }
