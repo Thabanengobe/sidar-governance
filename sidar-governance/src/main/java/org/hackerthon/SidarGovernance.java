@@ -3,8 +3,8 @@ package org.hackerthon;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 import io.javalin.http.staticfiles.Location;
-import org.hackerthon.controllers.DataBaseHandler;
-import org.hackerthon.database.ResponsesDO;
+import org.hackerthon.controllers.ReadResponseHandler;
+
 import org.hackerthon.excel_parser.ExcelParser;
 
 import java.util.ArrayList;
@@ -38,11 +38,11 @@ public class SidarGovernance {
             config.addStaticFiles( TEMPLATE_DIR, Location.CLASSPATH);
 //            config.post("/submitForm", this::submitForm);
         });
-//        server.get("/", ctx -> {
-//           ctx.render("/index(taps).html");
-//        });
+        server.post("/submitPurpose", ReadResponseHandler::purposeResponse);
         server.get("/purposeform", ctx -> {
             ctx.json(parser.getPurposeQO().getQuestions());
+        }).before(ctx->{
+            ctx.header("Access-Control-Allow-Origin", "*");
         });
         server.post("/submitForm", this::submitForm);
     }

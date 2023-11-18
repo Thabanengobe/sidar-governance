@@ -1,70 +1,50 @@
 package org.hackerthon.database;
 
+
 import net.lemnik.eodsql.ResultColumn;
 
 public class ResponsesDO {
 
-    private static String question;
-    private static int non_existent;
-    private static int minimal;
-    private static int some_elements;
-    private static int largely_in_place;
+    @ResultColumn(value = "questions")
+    private  String question;
+    @ResultColumn(value = "categories")
+    private String category;
+    @ResultColumn(value = "choices")
+    private  String choice;
 
-    private int fully_in_place;
+    @ResultColumn(value = "roles")
+    private  String role;
 
     public String getQuestion() {
         return question;
     }
-
-    public int getLargely_in_place() {
-        return largely_in_place;
+    public String getCategory() {
+        return category;
     }
 
-    public int getMinimal() {
-        return minimal;
+    public String getChoice(){
+        return choice;
     }
 
-    public int getNon_existent() {
-        return non_existent;
+    public String getRole(){
+        return role;
+    }
+    public ResponsesDO(){}
+
+    public  void setQuestion(String question) {
+        this.question = question;
     }
 
-    public int getSome_elements() {
-        return some_elements;
+    public void setChoice(String choice) {
+        this.choice = choice;
     }
 
-    public int getFully_in_place() {
-        return fully_in_place;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    @ResultColumn(value = "questions")
-    public void setQuestion(String question) {
-        ResponsesDO.question = question;
+    public void setCategory(String category) {
+        this.category = category;
     }
-    @ResultColumn(value = "grade_4")
-    public void setFully_in_place(int fully_in_place) {
-        this.fully_in_place = fully_in_place;
-    }
-
-    @ResultColumn(value = "grade_3")
-    public void setLargely_in_place(int largely_in_place) {
-        ResponsesDO.largely_in_place = largely_in_place;
-    }
-
-    @ResultColumn(value = "grade_0")
-    public void setNon_existent(int non_existent) {
-        ResponsesDO.non_existent = non_existent;
-    }
-
-    @ResultColumn(value = "grade_2")
-    public void setSome_elements(int some_elements) {
-        ResponsesDO.some_elements = some_elements;
-    }
-
-    @ResultColumn(value = "grade_1")
-    public void setMinimal(int minimal) {
-        ResponsesDO.minimal = minimal;
-    }
-
-
 
 }
