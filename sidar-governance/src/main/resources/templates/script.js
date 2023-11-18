@@ -64,7 +64,7 @@ function createRoles(){
 function createInput(index, i){
     const choices = ['Non-Existent', 'Minimal', 'Some Elements', 'Largely in Place', 'Fully in Place' ];
     const input = document.createElement('input');
-    input.value = choices[1];
+    input.value = choices[i];
     input.type = "radio";
     input.required = true;
     input.name = index;

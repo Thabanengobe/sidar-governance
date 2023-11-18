@@ -1,8 +1,11 @@
 package org.hackerthon.model;
 
+import org.hackerthon.controllers.DataBaseHandler;
 import org.hackerthon.database.ResponsesDO;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ColumnAnalysis {
 
@@ -22,4 +25,12 @@ public class ColumnAnalysis {
                 .filter((choice)-> CHOICES[choiceIndex].equals(choice))
                 .toList().size();
     }
+
+//    public void getQuestionsStat(){
+//        List<ResponsesDO> questions = DataBaseHandler.getExcelParser().getPerformanceQO()
+//                .getQuestions().stream()
+//                .map((question)->{
+//                    return DataBaseHandler.getResponsesDAI().getDataByQuestion(question);
+//                }).collect(Collectors.toList());
+//    }
 }
